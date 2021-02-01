@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  Github
+
+  Created by Emrah Akgül on 28.01.2021.
+  
+*/
+
+"Search" = "Search";
+"repository_detail_page_title" = "Repository Detail";
+"type_to_search" = "Please type to search";
+"search_no_data" = "There is no data. Please type to search.";
+"user_detail_page_title" = "User Detail";
+"repo_name_label" = "Repo Name";
+"owner_name_label" = "Owner Name";
+"programming_language_label" = "Programming Language";
+"username_label" = "Username";
+"email" = "Email";
+"name" = "Name";
+"fork_count" = "Fork Count";
