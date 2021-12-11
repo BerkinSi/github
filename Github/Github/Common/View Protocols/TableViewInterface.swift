@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol TableViewInterface: class {
+protocol TableViewInterface: AnyObject {
     func reloadTableView()
     func prepareTableView()
 }
