@@ -9,6 +9,7 @@ import Foundation
 import struct GithubAPI.RepoItemDTO
 
 struct SearchTableViewCellPresentation {
+    
     let ownerID: Int?
     let imageUrl: String?
     let repoName: String?

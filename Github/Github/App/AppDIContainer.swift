@@ -11,6 +11,7 @@ import GithubAPI
 let appDIContainer = AppDIContainer()
 
 final class AppDIContainer {
+    
     let searchReposService: SearchReposServiceProtocol
     let userProfileService: UserProfileServiceProtocol
     let userReposService: UserReposServiceProtocol

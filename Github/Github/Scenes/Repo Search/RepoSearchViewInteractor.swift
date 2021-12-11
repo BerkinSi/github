@@ -9,21 +9,26 @@ import Foundation
 import GithubAPI
 
 protocol RepoSearchViewInteractorInterface {
+
     func search(text: String?)
     func reset()
 }
 
 protocol RepoSearchViewInteractorOutput: BaseInteractorOutput {
+
     func handleSearchingRepos(result: Result<SearchReposContainerDTO?, Error>)
 }
 
 private extension RepoSearchViewInteractor {
+
     enum Constants {
+        
         static let perPage = 10
     }
 }
 
 final class RepoSearchViewInteractor {
+
     weak var output: RepoSearchViewInteractorOutput?
     private var searchReposService: SearchReposServiceProtocol
     private var pageNumber: Int = 1
@@ -34,6 +39,7 @@ final class RepoSearchViewInteractor {
 }
 
 extension RepoSearchViewInteractor: RepoSearchViewInteractorInterface {
+    
     func search(text: String?) {
         searchReposService.searchRepos(text: text, pageNumber: pageNumber, perPage: Constants.perPage) { [weak self] (result) in
             guard let self = self else { return }

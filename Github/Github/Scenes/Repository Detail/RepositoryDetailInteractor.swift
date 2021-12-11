@@ -9,19 +9,15 @@ import Foundation
 import GithubAPI
 
 protocol RepositoryDetailInteractorInterface {
-    
 }
 
 protocol RepositoryDetailInteractorOutput: BaseInteractorOutput {
-    
 }
 
 final class RepositoryDetailInteractor {
+
     weak var output: RepositoryDetailInteractorOutput?
-    
 }
 
 extension RepositoryDetailInteractor: RepositoryDetailInteractorInterface {
-    
 }
-

@@ -11,6 +11,7 @@ import GithubUI
 protocol UserDetailRouterInterface {}
 
 final class UserDetailRouter {
+    
     weak var navigationController: UINavigationController?
     
     init(with navigationController: UINavigationController?) {

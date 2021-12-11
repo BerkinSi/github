@@ -9,6 +9,7 @@ import Foundation
 import struct GithubAPI.RepoItemDTO
 
 struct RepoTableViewCellPresentation {
+    
     let imageUrl: String?
     let repoName: String?
     let ownerName: String?

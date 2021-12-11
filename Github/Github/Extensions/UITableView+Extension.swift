@@ -8,6 +8,7 @@
 import UIKit
 
 extension UITableView {
+
     func register<T: UITableViewCell>(cellType: T.Type, bundle: Bundle? = nil) {
         let className = String(describing: cellType.self)
         let nib = UINib(nibName: className, bundle: bundle)

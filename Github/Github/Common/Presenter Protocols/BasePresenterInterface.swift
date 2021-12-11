@@ -8,5 +8,6 @@
 import Foundation
 
 protocol BasePresenterInterface: AnyObject {
+    
     func viewDidLoad()
 }

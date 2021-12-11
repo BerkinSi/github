@@ -9,6 +9,7 @@ import UIKit
 import Kingfisher
 
 final class UserProfileTableViewCell: UITableViewCell {
+
     @IBOutlet private weak var avatarImageView: UIImageView!
     @IBOutlet private weak var userNameLabel: UILabel!
     @IBOutlet private weak var emailLabel: UILabel!
@@ -20,7 +21,6 @@ final class UserProfileTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
     
     func setupUI(userProfileTableViewCellPresentation: UserProfileTableViewCellPresentation?) {
@@ -30,8 +30,7 @@ final class UserProfileTableViewCell: UITableViewCell {
         
         if let url = URL(string: userProfileTableViewCellPresentation?.imageUrl ?? "") {
             avatarImageView.kf.setImage(with: url)
-        }
-        else{
+        } else {
             avatarImageView.image = nil
         }
         userNameLabel.text = userProfileTableViewCellPresentation?.username ?? "-"

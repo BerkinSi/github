@@ -8,7 +8,8 @@
 import Foundation
 import GithubAPI
 
-protocol RepoSearchViewPresenterInterface: TableViewPresenterInterface,BasePresenterInterface {
+protocol RepoSearchViewPresenterInterface: TableViewPresenterInterface, BasePresenterInterface {
+    
     func searchRepos(with text: String?)
     func removeRepos()
     func cellPresentation(index: Int) -> SearchTableViewCellPresentation?
@@ -17,6 +18,7 @@ protocol RepoSearchViewPresenterInterface: TableViewPresenterInterface,BasePrese
 }
 
 final class RepoSearchViewPresenter {
+
     private weak var view: RepoSearchViewInterface?
     private let router: RepoSearchViewRouterInterface?
     private let interactor: RepoSearchViewInteractorInterface?
@@ -31,6 +33,7 @@ final class RepoSearchViewPresenter {
 }
 
 extension RepoSearchViewPresenter : RepoSearchViewPresenterInterface {
+    
     func selectRepo(at index:Int) {
         if let repo = repos?[index] {
             let repositoryDetailPresentation = RepositoryDetailPresentation(repo: repo)
@@ -71,22 +74,24 @@ extension RepoSearchViewPresenter : RepoSearchViewPresenterInterface {
 }
 
 extension RepoSearchViewPresenter: RepoSearchViewInteractorOutput {
+
     func handleSearchingRepos(result: Result<SearchReposContainerDTO?, Error>) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             switch result {
-                case .success(let searchReposContainerDTO):
-                    self.handleCellPresentations(searchReposContainerDTO: searchReposContainerDTO)
-                    self.view?.reloadTableView()
-                case .failure(let error):
-                    self.view?.showError()
-                    print(error)
+            case .success(let searchReposContainerDTO):
+                self.handleCellPresentations(searchReposContainerDTO: searchReposContainerDTO)
+                self.view?.reloadTableView()
+            case .failure(let error):
+                self.view?.showError()
+                print(error)
             }
         }
     }
 }
 
 private extension RepoSearchViewPresenter {
+    
     func handleCellPresentations(searchReposContainerDTO: SearchReposContainerDTO?) {
         guard let reposContainerDTO = searchReposContainerDTO else { return }
         guard let repoItems = reposContainerDTO.items else {return }

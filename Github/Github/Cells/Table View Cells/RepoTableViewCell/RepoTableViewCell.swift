@@ -8,12 +8,11 @@
 import UIKit
 
 final class RepoTableViewCell: UITableViewCell {
+
     @IBOutlet private weak var repositoryAccessImageView: UIImageView!
     @IBOutlet private weak var repoNameLabel: UILabel!
     @IBOutlet private weak var ownerNameLabel: UILabel!
     @IBOutlet private weak var programmingLanguageLabel: UILabel!
-    
-    
     @IBOutlet private weak var repoLabel: UILabel!
     @IBOutlet private weak var ownerLabel: UILabel!
     @IBOutlet private weak var languageLabel: UILabel!
@@ -28,8 +27,7 @@ final class RepoTableViewCell: UITableViewCell {
     func setupUI(repoTableViewCellPresentation: RepoTableViewCellPresentation?) {
         if repoTableViewCellPresentation?.isPrivate ?? true {
             repositoryAccessImageView.image = UIImage(systemName: "lock")
-        }
-        else {
+        } else {
             repositoryAccessImageView.image = UIImage(systemName: "lock.open")
         }
         repoNameLabel.text = repoTableViewCellPresentation?.repoName ?? "-"

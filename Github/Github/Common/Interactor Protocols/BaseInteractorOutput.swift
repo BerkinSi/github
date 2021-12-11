@@ -8,9 +8,11 @@
 import Foundation
 
 protocol BaseInteractorOutput: AnyObject {
+    
     func setLoading(shouldLoad: Bool)
 }
 
 extension BaseInteractorOutput {
+
     func setLoading(shouldLoad: Bool) {}
 }

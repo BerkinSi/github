@@ -9,6 +9,7 @@ import Foundation
 import struct GithubAPI.RepoItemDTO
 
 struct RepositoryDetailPresentation {
+    
     let imageUrl: String?
     let repoName: String?
     let userName: String?

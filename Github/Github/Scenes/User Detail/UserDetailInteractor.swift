@@ -9,22 +9,27 @@ import Foundation
 import GithubAPI
 
 protocol UserDetailInteractorInterface {
+
     func getRepos(username: String?)
     func getUserProfile(username: String?)
 }
 
 protocol UserDetailInteractorOutput: BaseInteractorOutput {
+
     func handleGettingUserProfile(result: Result<UserDTO?, Error>)
     func handleGettingRepos(result: Result<[RepoItemDTO]?, Error>)
 }
 
 private extension UserDetailInteractor {
+
     enum Constants {
+
         static let perPage = 10
     }
 }
 
 final class UserDetailInteractor {
+
     weak var output: UserDetailInteractorOutput?
     private var userProfileService: UserProfileServiceProtocol
     private var userReposService: UserReposServiceProtocol
@@ -36,7 +41,7 @@ final class UserDetailInteractor {
     }
 }
 
-extension UserDetailInteractor : UserDetailInteractorInterface {
+extension UserDetailInteractor: UserDetailInteractorInterface {
     
     func getUserProfile(username: String?) {
         self.output?.setLoading(shouldLoad: true)
@@ -56,6 +61,4 @@ extension UserDetailInteractor : UserDetailInteractorInterface {
             self.output?.handleGettingRepos(result: result)
         }
     }
-    
 }
-

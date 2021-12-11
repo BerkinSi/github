@@ -10,6 +10,7 @@ import UIKit
 protocol UserDetailInterface: TableViewInterface, BaseViewInterface { }
 
 final class UserDetailViewController: UIViewController {
+
     @IBOutlet private weak var tableView: UITableView!
     
     var presenter: UserDetailPresenterInterface!
@@ -21,6 +22,7 @@ final class UserDetailViewController: UIViewController {
 }
 
 extension UserDetailViewController: UserDetailInterface {
+
     func reloadTableView() {
         tableView.reloadData()
     }
@@ -42,8 +44,10 @@ extension UserDetailViewController: UserDetailInterface {
     }
 }
 
-//MARK: UITableViewDataSource Methods
+// MARK: UITableViewDataSource Methods
+
 extension UserDetailViewController: UITableViewDataSource {
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.numberOfItems
     }
@@ -54,19 +58,19 @@ extension UserDetailViewController: UITableViewDataSource {
             let profilePresentation = presenter.getUserProfileCellPresentation()
             cell.setupUI(userProfileTableViewCellPresentation: profilePresentation)
             return cell
-        }
-        else {
+        } else {
             let cell = tableView.dequeueReusableCell(with: RepoTableViewCell.self, for: indexPath)
             let repoPresentation = presenter.repoCellPresentation(at: indexPath.row)
             cell.setupUI(repoTableViewCellPresentation: repoPresentation)
             return cell
         }
     }
-    
 }
 
-//MARK: UITableViewDelegate Methods
+// MARK: UITableViewDelegate Methods
+
 extension UserDetailViewController: UITableViewDelegate {
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
@@ -76,11 +80,12 @@ extension UserDetailViewController: UITableViewDelegate {
     }
 }
 
-//MARK: UITableViewDataSourcePrefetching Methods
+// MARK: UITableViewDataSourcePrefetching Methods
+
 extension UserDetailViewController: UITableViewDataSourcePrefetching {
+    
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         guard let lastIndex = indexPaths.last?.item, lastIndex == presenter.numberOfItems - 1 else { return }
         presenter.getRepos()
     }
 }
-

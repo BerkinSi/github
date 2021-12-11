@@ -9,6 +9,7 @@ import Foundation
 import GithubAPI
 
 struct UserProfileTableViewCellPresentation {
+    
     let imageUrl: String?
     let username: String?
     let email: String?

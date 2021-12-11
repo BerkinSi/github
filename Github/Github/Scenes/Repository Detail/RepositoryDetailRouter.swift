@@ -9,10 +9,12 @@ import UIKit
 import GithubUI
 
 protocol RepositoryDetailRouterInterface {
+
     func navigateToUserDetail(with userName: String?)
 }
 
 final class RepositoryDetailRouter {
+
     weak var navigationController: UINavigationController?
     
     init(with navigationController: UINavigationController?) {
@@ -32,6 +34,7 @@ final class RepositoryDetailRouter {
 }
 
 extension RepositoryDetailRouter: RepositoryDetailRouterInterface {
+    
     func navigateToUserDetail(with userName: String?) {
         let view = UserDetailRouter.createModule(using: self.navigationController, userName: userName)
         self.navigationController?.pushViewController(view, animated: true)

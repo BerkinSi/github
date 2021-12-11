@@ -8,6 +8,7 @@
 import Foundation
 
 final class SearchHelper {
+    
     typealias SearchHandler = (String) -> Void
     private let interval: TimeInterval
     private let searchHandler: SearchHandler

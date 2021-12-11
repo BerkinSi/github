@@ -10,12 +10,14 @@ import GithubAPI
 import GithubUI
 
 protocol UserDetailPresenterInterface: TableViewPresenterInterface, BasePresenterInterface {
+
     func repoCellPresentation(at index: Int) -> RepoTableViewCellPresentation?
     func getUserProfileCellPresentation() -> UserProfileTableViewCellPresentation?
     func getRepos()
 }
 
 final class UserDetailPresenter {
+
     private weak var view: UserDetailInterface?
     private let router: UserDetailRouterInterface?
     private let interactor: UserDetailInteractorInterface?
@@ -34,6 +36,7 @@ final class UserDetailPresenter {
 }
 
 extension UserDetailPresenter: UserDetailPresenterInterface {
+
     func getRepos() {
         interactor?.getRepos(username: userName)
     }
@@ -64,8 +67,7 @@ extension UserDetailPresenter: UserDetailInteractorOutput {
     func setLoading(shouldLoad: Bool) {
         if shouldLoad {
             LoaderView.shared.startLoading()
-        }
-        else {
+        } else {
             LoaderView.shared.stopLoading()
         }
     }
@@ -74,19 +76,17 @@ extension UserDetailPresenter: UserDetailInteractorOutput {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             switch result {
-                case .success(let repoItems):
-                    guard let items = repoItems else { return }
-                    let itemPresentations = items.map { RepoTableViewCellPresentation(repoItemDTO: $0) }
-                    if self.repoCellPresentations == nil {
-                        self.repoCellPresentations = itemPresentations
-                    }
-                    else {
-                        self.repoCellPresentations?.append(contentsOf: itemPresentations)
-                    }
-                    self.view?.reloadTableView()
-                case .failure(let error):
-                    self.view?.showError()
-                    print(error)
+            case .success(let repoItems):
+                guard let items = repoItems else { return }
+                let itemPresentations = items.map { RepoTableViewCellPresentation(repoItemDTO: $0) }
+                if self.repoCellPresentations == nil {
+                    self.repoCellPresentations = itemPresentations
+                } else {
+                    self.repoCellPresentations?.append(contentsOf: itemPresentations)
+                }
+                self.view?.reloadTableView()
+            case .failure(let error):
+                self.view?.showError()
             }
         }
     }
@@ -95,12 +95,11 @@ extension UserDetailPresenter: UserDetailInteractorOutput {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             switch result {
-                case .success(let userDTO):
-                    self.userProfileCellPresentation = UserProfileTableViewCellPresentation(userDTO: userDTO)
-                    self.interactor?.getRepos(username: self.userName)
-                case .failure(let error):
-                    self.view?.showError()
-                    print(error)
+            case .success(let userDTO):
+                self.userProfileCellPresentation = UserProfileTableViewCellPresentation(userDTO: userDTO)
+                self.interactor?.getRepos(username: self.userName)
+            case .failure(let error):
+                self.view?.showError()
             }
         }
     }

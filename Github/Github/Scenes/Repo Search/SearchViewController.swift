@@ -9,12 +9,15 @@ import UIKit
 import GithubUI
 
 protocol SearchViewInterface: TableViewInterface, BaseViewInterface {
+
     func prepareNoData()
     func prepareSearchBar()
 }
 
 final class RepoSearchViewController: UIViewController {
+
     //MARK: IBOutlets
+
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var noDataLabel: UILabel!
@@ -24,14 +27,17 @@ final class RepoSearchViewController: UIViewController {
     var presenter: SearchViewPresenterInterface!
     
     //MARK: Life Cycle Methods
+
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
     }
 }
 
-//MARK: SearchViewInterface methods
+// MARK: SearchViewInterface methods
+
 extension RepoSearchViewController: SearchViewInterface {
+
     func prepareSearchBar() {
         searchBar.delegate = self
         searchBar.placeholder = "Please type to search"
@@ -62,23 +68,29 @@ extension RepoSearchViewController: SearchViewInterface {
     }
 }
 
-//MARK: UIScrollViewDelegate methods
+// MARK: UIScrollViewDelegate methods
+
 extension RepoSearchViewController: UIScrollViewDelegate {
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         searchBar.endEditing(false)
     }
 }
 
-//MARK: UISearchBarDelegate methods
+// MARK: UISearchBarDelegate methods
+
 extension RepoSearchViewController: UISearchBarDelegate {
+
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchHelper.handleTyping(text: searchText)
     }
 }
 
 
-//MARK: UITableViewDataSource & UITableViewDelegate & UITableViewDataSourcePrefetching methods
+// MARK: UITableViewDataSource & UITableViewDelegate & UITableViewDataSourcePrefetching methods
+
 extension RepoSearchViewController: UITableViewDataSource {
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         noDataLabel.isHidden = presenter.numberOfItems != 0
         return presenter.numberOfItems
@@ -98,6 +110,7 @@ extension RepoSearchViewController: UITableViewDataSource {
 }
 
 extension RepoSearchViewController: UITableViewDelegate {
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         presenter.selectRepo(at: indexPath.row)
@@ -105,6 +118,7 @@ extension RepoSearchViewController: UITableViewDelegate {
 }
 
 extension RepoSearchViewController: UITableViewDataSourcePrefetching {
+
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         guard let lastIndex = indexPaths.last?.item,
               lastIndex == presenter.numberOfItems - 1 else { return }
@@ -112,8 +126,10 @@ extension RepoSearchViewController: UITableViewDataSourcePrefetching {
     }
 }
 
-//MARK: Private Methods
+// MARK: Private Methods
+
 private extension RepoSearchViewController {
+
     func registerCells() {
         tableView.register(cellType: SearchTableViewCell.self)
     }
@@ -127,8 +143,10 @@ private extension RepoSearchViewController {
     }
 }
 
-//MARK: SearchTableViewCellDelegate methods
+// MARK: SearchTableViewCellDelegate methods
+
 extension RepoSearchViewController: SearchTableViewCellDelegate {
+    
     func didTapAvatar(at index: Int) {
         presenter.selectAvatar(at: index)
     }

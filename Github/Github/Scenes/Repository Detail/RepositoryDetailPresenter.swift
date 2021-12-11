@@ -8,11 +8,13 @@
 import Foundation
 
 protocol RepositoryDetailPresenterInterface: BasePresenterInterface {
+
     func getRepositoryDetailPresentation() -> RepositoryDetailPresentation?
     func selectAvatarImage()
 }
 
 final class RepositoryDetailPresenter {
+
     private weak var view: RepositoryDetailInterface?
     private let router: RepositoryDetailRouterInterface?
     private let interactor: RepositoryDetailInteractorInterface?
@@ -27,6 +29,7 @@ final class RepositoryDetailPresenter {
 }
 
 extension RepositoryDetailPresenter: RepositoryDetailPresenterInterface {
+    
     func selectAvatarImage() {
         router?.navigateToUserDetail(with: repositoryDetailPresentation?.userName ?? "")
     }

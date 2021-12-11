@@ -5,15 +5,17 @@
 //  Created by Emrah Akgül on 25.01.2021.
 //
 
-import UIKit
 import GithubUI
+import UIKit
 
 protocol RepoSearchViewRouterInterface {
+
     func navigateToUserDetail(with ownerName: String?)
     func navigateToRepositoryDetail(repositoryDetailPresentation: RepositoryDetailPresentation?)
 }
 
 final class RepoSearchViewRouter {
+    
     weak var navigationController: UINavigationController?
     
     init(with navigationController: UINavigationController?) {
@@ -34,6 +36,7 @@ final class RepoSearchViewRouter {
 }
 
 extension RepoSearchViewRouter: RepoSearchViewRouterInterface {
+    
     func navigateToRepositoryDetail(repositoryDetailPresentation: RepositoryDetailPresentation?) {
         let view = RepositoryDetailRouter.createModule(using: self.navigationController, repositoryDetailPresentation: repositoryDetailPresentation)
         self.navigationController?.pushViewController(view, animated: true)

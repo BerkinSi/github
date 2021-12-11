@@ -8,6 +8,7 @@
 import Foundation
 
 protocol TableViewInterface: AnyObject {
+    
     func reloadTableView()
     func prepareTableView()
 }

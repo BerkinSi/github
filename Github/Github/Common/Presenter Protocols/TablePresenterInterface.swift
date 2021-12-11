@@ -8,5 +8,6 @@
 import Foundation
 
 protocol TableViewPresenterInterface {
-    var numberOfItems: Int {get}
+
+    var numberOfItems: Int { get }
 }
