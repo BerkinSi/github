@@ -11,7 +11,7 @@ protocol UserDetailInterface: TableViewInterface, BaseViewInterface { }
 
 final class UserDetailViewController: UIViewController {
 
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private var tableView: UITableView!
     
     var presenter: UserDetailPresenterInterface!
     

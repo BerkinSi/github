@@ -9,13 +9,13 @@ import UIKit
 
 final class RepoTableViewCell: UITableViewCell {
 
-    @IBOutlet private weak var repositoryAccessImageView: UIImageView!
-    @IBOutlet private weak var repoNameLabel: UILabel!
-    @IBOutlet private weak var ownerNameLabel: UILabel!
-    @IBOutlet private weak var programmingLanguageLabel: UILabel!
-    @IBOutlet private weak var repoLabel: UILabel!
-    @IBOutlet private weak var ownerLabel: UILabel!
-    @IBOutlet private weak var languageLabel: UILabel!
+    @IBOutlet private var repositoryAccessImageView: UIImageView!
+    @IBOutlet private var repoNameLabel: UILabel!
+    @IBOutlet private var ownerNameLabel: UILabel!
+    @IBOutlet private var programmingLanguageLabel: UILabel!
+    @IBOutlet private var repoLabel: UILabel!
+    @IBOutlet private var ownerLabel: UILabel!
+    @IBOutlet private var languageLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -20,10 +20,10 @@ final class SearchTableViewCell: UITableViewCell {
 
     // MARK: IBOutlets
 
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var detailLabel: UILabel!
-    @IBOutlet private weak var avatarImageView: UIImageView!
-    @IBOutlet private weak var avatarButton: UIButton!
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var detailLabel: UILabel!
+    @IBOutlet private var avatarImageView: UIImageView!
+    @IBOutlet private var avatarButton: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -10,14 +10,14 @@ import UIKit
 
 final class UserProfileTableViewCell: UITableViewCell {
 
-    @IBOutlet private weak var avatarImageView: UIImageView!
-    @IBOutlet private weak var userNameLabel: UILabel!
-    @IBOutlet private weak var emailLabel: UILabel!
-    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private var avatarImageView: UIImageView!
+    @IBOutlet private var userNameLabel: UILabel!
+    @IBOutlet private var emailLabel: UILabel!
+    @IBOutlet private var nameLabel: UILabel!
     
-    @IBOutlet private weak var userLabel: UILabel!
-    @IBOutlet private weak var email: UILabel!
-    @IBOutlet private weak var name: UILabel!
+    @IBOutlet private var userLabel: UILabel!
+    @IBOutlet private var email: UILabel!
+    @IBOutlet private var name: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

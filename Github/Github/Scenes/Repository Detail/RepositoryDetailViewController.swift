@@ -14,16 +14,16 @@ protocol RepositoryDetailInterface: BaseViewInterface {
 
 final class RepositoryDetailViewController: UIViewController {
 
-    @IBOutlet private weak var avatarImageView: UIImageView!
-    @IBOutlet private weak var avatarButton: UIButton!
-    @IBOutlet private weak var repoNameLabel: UILabel!
-    @IBOutlet private weak var usernameLabel: UILabel!
-    @IBOutlet private weak var forkCountLabel: UILabel!
-    @IBOutlet private weak var languageLabel: UILabel!
-    @IBOutlet private weak var repo: UILabel!
-    @IBOutlet private weak var username: UILabel!
-    @IBOutlet private weak var forkCount: UILabel!
-    @IBOutlet private weak var language: UILabel!
+    @IBOutlet private var avatarImageView: UIImageView!
+    @IBOutlet private var avatarButton: UIButton!
+    @IBOutlet private var repoNameLabel: UILabel!
+    @IBOutlet private var usernameLabel: UILabel!
+    @IBOutlet private var forkCountLabel: UILabel!
+    @IBOutlet private var languageLabel: UILabel!
+    @IBOutlet private var repo: UILabel!
+    @IBOutlet private var username: UILabel!
+    @IBOutlet private var forkCount: UILabel!
+    @IBOutlet private var language: UILabel!
 
     var presenter: RepositoryDetailPresenterInterface!
     override func viewDidLoad() {
