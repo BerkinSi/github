@@ -94,20 +94,18 @@ private extension RepoSearchViewPresenter {
     
     func handleCellPresentations(searchReposContainerDTO: SearchReposContainerDTO?) {
         guard let reposContainerDTO = searchReposContainerDTO else { return }
-        guard let repoItems = reposContainerDTO.items else {return }
+        guard let repoItems = reposContainerDTO.items else { return }
         
-        let itemPresentations = repoItems.map{SearchTableViewCellPresentation(repoItemDTO: $0)}
+        let itemPresentations = repoItems.map{ SearchTableViewCellPresentation(repoItemDTO: $0)}
         if cellPresentations == nil {
             cellPresentations = itemPresentations
-        }
-        else {
+        } else {
             cellPresentations?.append(contentsOf: itemPresentations)
         }
         
         if repos == nil {
             repos = repoItems
-        }
-        else {
+        } else {
             repos?.append(contentsOf: repoItems)
         }
     }
