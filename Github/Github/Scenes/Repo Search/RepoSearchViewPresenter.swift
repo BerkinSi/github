@@ -25,16 +25,20 @@ final class RepoSearchViewPresenter {
     private var cellPresentations: [SearchTableViewCellPresentation]?
     private var repos: [RepoItemDTO]?
     
-    init(view: RepoSearchViewInterface?, router: RepoSearchViewRouterInterface?, interactor: RepoSearchViewInteractorInterface?) {
+    init(
+        view: RepoSearchViewInterface?,
+        router: RepoSearchViewRouterInterface?,
+        interactor: RepoSearchViewInteractorInterface?
+    ) {
         self.view = view
         self.router = router
         self.interactor = interactor
     }
 }
 
-extension RepoSearchViewPresenter : RepoSearchViewPresenterInterface {
+extension RepoSearchViewPresenter: RepoSearchViewPresenterInterface {
     
-    func selectRepo(at index:Int) {
+    func selectRepo(at index: Int) {
         if let repo = repos?[index] {
             let repositoryDetailPresentation = RepositoryDetailPresentation(repo: repo)
             self.router?.navigateToRepositoryDetail(repositoryDetailPresentation: repositoryDetailPresentation)
@@ -96,7 +100,7 @@ private extension RepoSearchViewPresenter {
         guard let reposContainerDTO = searchReposContainerDTO else { return }
         guard let repoItems = reposContainerDTO.items else { return }
         
-        let itemPresentations = repoItems.map{ SearchTableViewCellPresentation(repoItemDTO: $0)}
+        let itemPresentations = repoItems.map { SearchTableViewCellPresentation(repoItemDTO: $0) }
         if cellPresentations == nil {
             cellPresentations = itemPresentations
         } else {

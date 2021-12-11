@@ -16,7 +16,8 @@ protocol BaseViewInterface: AnyObject {
 extension BaseViewInterface {
 
     func showError() {
-        if let keyWindow = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first, let rootVC = keyWindow.rootViewController {
+        if let keyWindow = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first,
+           let rootVC = keyWindow.rootViewController {
             rootVC.showError()
         }
     }

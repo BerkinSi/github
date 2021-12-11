@@ -5,8 +5,8 @@
 //  Created by Emrah Akgül on 25.01.2021.
 //
 
-import UIKit
 import GithubUI
+import UIKit
 
 protocol SearchViewInterface: TableViewInterface, BaseViewInterface {
 
@@ -16,7 +16,7 @@ protocol SearchViewInterface: TableViewInterface, BaseViewInterface {
 
 final class RepoSearchViewController: UIViewController {
 
-    //MARK: IBOutlets
+    // MARK: IBOutlets
 
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var tableView: UITableView!
@@ -26,7 +26,7 @@ final class RepoSearchViewController: UIViewController {
     
     var presenter: SearchViewPresenterInterface!
     
-    //MARK: Life Cycle Methods
+    // MARK: Life Cycle Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,7 +86,6 @@ extension RepoSearchViewController: UISearchBarDelegate {
     }
 }
 
-
 // MARK: UITableViewDataSource & UITableViewDelegate & UITableViewDataSourcePrefetching methods
 
 extension RepoSearchViewController: UITableViewDataSource {
@@ -135,7 +134,9 @@ private extension RepoSearchViewController {
     }
     
     func prepareSearchHelper() {
-        searchHelper = SearchHelper(interval: 0.4) { [weak self] (text) in
+        searchHelper = SearchHelper(
+            interval: 0.4
+        ) { [weak self] text in
             guard let self = self else { return }
             self.presenter.removeRepos()
             self.presenter.searchRepos(with: text)

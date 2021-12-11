@@ -32,13 +32,15 @@ final class RepoSearchViewRouter {
         interactor.output = presenter
         return view
     }
-    
 }
 
 extension RepoSearchViewRouter: RepoSearchViewRouterInterface {
     
     func navigateToRepositoryDetail(repositoryDetailPresentation: RepositoryDetailPresentation?) {
-        let view = RepositoryDetailRouter.createModule(using: self.navigationController, repositoryDetailPresentation: repositoryDetailPresentation)
+        let view = RepositoryDetailRouter.createModule(
+            using: self.navigationController,
+            repositoryDetailPresentation: repositoryDetailPresentation
+        )
         self.navigationController?.pushViewController(view, animated: true)
     }
     

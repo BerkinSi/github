@@ -5,8 +5,8 @@
 //  Created by Emrah Akgül on 25.01.2021.
 //
 
-import UIKit
 import Kingfisher
+import UIKit
 
 protocol SearchTableViewCellDelegate: AnyObject {
 
@@ -29,7 +29,11 @@ final class SearchTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func setupUI(cellPresentation: SearchTableViewCellPresentation?, index: Int, delegate:SearchTableViewCellDelegate? ) {
+    func setupUI(
+        cellPresentation: SearchTableViewCellPresentation?,
+        index: Int,
+        delegate: SearchTableViewCellDelegate?
+    ) {
         self.delegate = delegate
         self.index = index
         self.titleLabel.text = cellPresentation?.repoName

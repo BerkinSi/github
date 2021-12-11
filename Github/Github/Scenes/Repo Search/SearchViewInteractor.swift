@@ -34,7 +34,11 @@ final class RepoSearchViewInteractor {
 extension RepoSearchViewInteractor: RepoSearchViewInteractorInterface {
 
     func search(text: String?) {
-        searchReposService.searchRepos(text: text, pageNumber: pageNumber, perPage: perPage) { [weak self] (result) in
+        searchReposService.searchRepos(
+            text: text,
+            pageNumber: pageNumber,
+            perPage: perPage
+        ) { [weak self] result in
             guard let self = self else { return }
             self.pageNumber += 1
             self.output?.handleSearchingRepos(result: result)

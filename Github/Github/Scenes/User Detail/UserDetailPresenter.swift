@@ -26,13 +26,17 @@ final class UserDetailPresenter {
     private var userProfileCellPresentation: UserProfileTableViewCellPresentation?
     private var repoCellPresentations: [RepoTableViewCellPresentation]?
 
-    init(view: UserDetailInterface?, router: UserDetailRouterInterface?, interactor: UserDetailInteractorInterface?, userName: String?) {
+    init(
+        view: UserDetailInterface?,
+        router: UserDetailRouterInterface?,
+        interactor: UserDetailInteractorInterface?,
+        userName: String?
+    ) {
         self.view = view
         self.router = router
         self.interactor = interactor
         self.userName = userName
     }
-    
 }
 
 extension UserDetailPresenter: UserDetailPresenterInterface {
@@ -46,11 +50,13 @@ extension UserDetailPresenter: UserDetailPresenterInterface {
     }
     
     func repoCellPresentation(at index: Int) -> RepoTableViewCellPresentation? {
-        return repoCellPresentations?[index-1]
+        return repoCellPresentations?[index - 1]
     }
     
     var numberOfItems: Int {
-        guard let _ = userProfileCellPresentation else { return 0 }
+        if userProfileCellPresentation == nil {
+            return .zero
+        }
         return (repoCellPresentations?.count ?? 0) + 1
     }
     
@@ -60,7 +66,6 @@ extension UserDetailPresenter: UserDetailPresenterInterface {
         interactor?.getUserProfile(username: userName)
     }
 }
-
 
 extension UserDetailPresenter: UserDetailInteractorOutput {
     
@@ -87,6 +92,7 @@ extension UserDetailPresenter: UserDetailInteractorOutput {
                 self.view?.reloadTableView()
             case .failure(let error):
                 self.view?.showError()
+                print(error)
             }
         }
     }
@@ -100,6 +106,7 @@ extension UserDetailPresenter: UserDetailInteractorOutput {
                 self.interactor?.getRepos(username: self.userName)
             case .failure(let error):
                 self.view?.showError()
+                print(error)
             }
         }
     }

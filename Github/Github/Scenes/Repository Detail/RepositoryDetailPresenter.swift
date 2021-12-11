@@ -20,7 +20,12 @@ final class RepositoryDetailPresenter {
     private let interactor: RepositoryDetailInteractorInterface?
     private let repositoryDetailPresentation: RepositoryDetailPresentation?
     
-    init(view: RepositoryDetailInterface?, router: RepositoryDetailRouterInterface?, interactor: RepositoryDetailInteractorInterface?, repositoryDetailPresentation: RepositoryDetailPresentation?) {
+    init(
+        view: RepositoryDetailInterface?,
+        router: RepositoryDetailRouterInterface?,
+        interactor: RepositoryDetailInteractorInterface?,
+        repositoryDetailPresentation: RepositoryDetailPresentation?
+    ) {
         self.view = view
         self.router = router
         self.interactor = interactor
@@ -45,11 +50,7 @@ extension RepositoryDetailPresenter: RepositoryDetailPresenterInterface {
 }
 
 extension RepositoryDetailPresenter: RepositoryDetailInteractorInterface {
-    
 }
 
 extension RepositoryDetailPresenter: RepositoryDetailInteractorOutput {
-    
 }
-
-

@@ -5,8 +5,8 @@
 //  Created by Emrah Akgül on 26.01.2021.
 //
 
-import UIKit
 import Kingfisher
+import UIKit
 
 final class UserProfileTableViewCell: UITableViewCell {
 

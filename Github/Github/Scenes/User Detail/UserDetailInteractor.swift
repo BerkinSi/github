@@ -45,7 +45,7 @@ extension UserDetailInteractor: UserDetailInteractorInterface {
     
     func getUserProfile(username: String?) {
         self.output?.setLoading(shouldLoad: true)
-        userProfileService.getUserProfile(userName: username) { [weak self] (result) in
+        userProfileService.getUserProfile(userName: username) { [weak self] result in
             guard let self = self else { return }
             self.output?.setLoading(shouldLoad: false)
             self.output?.handleGettingUserProfile(result: result)
@@ -54,7 +54,11 @@ extension UserDetailInteractor: UserDetailInteractorInterface {
     
     func getRepos(username: String?) {
         self.output?.setLoading(shouldLoad: true)
-        userReposService.getRepos(owner: username, pageNumber: pageNumber, perPage: Constants.perPage) { [weak self] (result) in
+        userReposService.getRepos(
+            owner: username,
+            pageNumber: pageNumber,
+            perPage: Constants.perPage
+        ) { [weak self] result in
             guard let self = self else { return }
             self.output?.setLoading(shouldLoad: false)
             self.pageNumber += 1

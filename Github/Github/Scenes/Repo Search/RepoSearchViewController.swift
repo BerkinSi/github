@@ -5,8 +5,8 @@
 //  Created by Emrah Akgül on 25.01.2021.
 //
 
-import UIKit
 import GithubUI
+import UIKit
 
 protocol RepoSearchViewInterface: TableViewInterface, BaseViewInterface {
 
@@ -97,7 +97,6 @@ extension RepoSearchViewController: UISearchBarDelegate {
     }
 }
 
-
 // MARK: UITableViewDataSource & UITableViewDelegate & UITableViewDataSourcePrefetching methods
 
 extension RepoSearchViewController: UITableViewDataSource {
@@ -145,7 +144,9 @@ extension RepoSearchViewController: UITableViewDataSourcePrefetching {
 private extension RepoSearchViewController {
 
     func prepareSearchHelper() {
-        searchHelper = SearchHelper(interval: Constants.throttlingTime) { [weak self] (text) in
+        searchHelper = SearchHelper(
+            interval: Constants.throttlingTime
+        ) { [weak self] text in
             guard let self = self else { return }
             self.presenter.removeRepos()
             self.presenter.searchRepos(with: text)
