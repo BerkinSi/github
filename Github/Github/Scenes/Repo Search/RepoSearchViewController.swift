@@ -108,7 +108,10 @@ extension RepoSearchViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(with: SearchTableViewCell.self, for: indexPath)
+
+        guard let cell = tableView.dequeueReusableCell(with: SearchTableViewCell.self, for: indexPath) else {
+            return UITableViewCell()
+        }
         
         let presentation = self.presenter.cellPresentation(index: indexPath.row)
         cell.setupUI(cellPresentation: presentation, index: indexPath.row, delegate: self)

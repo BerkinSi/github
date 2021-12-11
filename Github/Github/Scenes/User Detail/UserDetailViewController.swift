@@ -54,12 +54,16 @@ extension UserDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == .zero {
-            let cell = tableView.dequeueReusableCell(with: UserProfileTableViewCell.self, for: indexPath)
+            guard let cell = tableView.dequeueReusableCell(with: UserProfileTableViewCell.self, for: indexPath) else {
+                return UITableViewCell()
+            }
             let profilePresentation = presenter.getUserProfileCellPresentation()
             cell.setupUI(userProfileTableViewCellPresentation: profilePresentation)
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(with: RepoTableViewCell.self, for: indexPath)
+            guard let cell = tableView.dequeueReusableCell(with: RepoTableViewCell.self, for: indexPath) else {
+                return UITableViewCell()
+            }
             let repoPresentation = presenter.repoCellPresentation(at: indexPath.row)
             cell.setupUI(repoTableViewCellPresentation: repoPresentation)
             return cell
