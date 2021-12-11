@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol BaseViewInterface: class {
+protocol BaseViewInterface: AnyObject {
     func preparePageTitle()
     func showError()
 }

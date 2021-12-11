@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-protocol SearchTableViewCellDelegate: class {
+protocol SearchTableViewCellDelegate: AnyObject {
     func didTapAvatar(at index: Int)
 }
 

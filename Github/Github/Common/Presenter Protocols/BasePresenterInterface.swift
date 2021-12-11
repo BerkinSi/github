@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol BasePresenterInterface: class {
+protocol BasePresenterInterface: AnyObject {
     func viewDidLoad()
 }

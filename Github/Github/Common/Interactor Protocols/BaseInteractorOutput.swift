@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol BaseInteractorOutput: class {
+protocol BaseInteractorOutput: AnyObject {
     func setLoading(shouldLoad: Bool)
 }
 
