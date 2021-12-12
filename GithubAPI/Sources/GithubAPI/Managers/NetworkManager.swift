@@ -54,43 +54,45 @@ final class NetworkManager {
         
         let urlSession = URLSession(configuration: .default)
         let task = urlSession.dataTask(with: urlRequest) { (data, response, error) in
-            guard let response = response as? HTTPURLResponse else {
-                #if DEBUG
-                print("No Response!")
-                #endif
-                completionHandler(nil, .other)
-                return
-            }
-            if let error = error {
-                #if DEBUG
-                print("Connection Error: " + error.localizedDescription)
-                #endif
-                
-                completionHandler(nil, .connection(reason: error))
-                
-                return
-            }
-            if response.statusCode < 200 || response.statusCode >= 400 {
-                #if DEBUG
-                print("HTTP Error: " + String(describing: response.statusCode))
-                #endif
-                completionHandler(nil, .http(code: response.statusCode))
-            }
-            else {
-                guard let data = data else {
+            DispatchQueue.main.async {
+                guard let response = response as? HTTPURLResponse else {
                     #if DEBUG
-                    print("No Data!")
+                    print("No Response!")
                     #endif
-                    completionHandler(nil, .data(reason: .missing))
+                    completionHandler(nil, .other)
                     return
                 }
-                do {
-                    let response = try NetworkManager.decoder.decode(S.self, from: data)
-                    completionHandler(response, nil)
-                } catch let error as DecodingError {
-                    completionHandler(nil, .data(reason: .read(underlying: error)))
-                } catch {
-                    completionHandler(nil, .other)
+                if let error = error {
+                    #if DEBUG
+                    print("Connection Error: " + error.localizedDescription)
+                    #endif
+
+                    completionHandler(nil, .connection(reason: error))
+
+                    return
+                }
+                if response.statusCode < 200 || response.statusCode >= 400 {
+                    #if DEBUG
+                    print("HTTP Error: " + String(describing: response.statusCode))
+                    #endif
+                    completionHandler(nil, .http(code: response.statusCode))
+                }
+                else {
+                    guard let data = data else {
+                        #if DEBUG
+                        print("No Data!")
+                        #endif
+                        completionHandler(nil, .data(reason: .missing))
+                        return
+                    }
+                    do {
+                        let response = try NetworkManager.decoder.decode(S.self, from: data)
+                        completionHandler(response, nil)
+                    } catch let error as DecodingError {
+                        completionHandler(nil, .data(reason: .read(underlying: error)))
+                    } catch {
+                        completionHandler(nil, .other)
+                    }
                 }
             }
         }
