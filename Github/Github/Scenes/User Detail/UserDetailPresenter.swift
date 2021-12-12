@@ -78,36 +78,30 @@ extension UserDetailPresenter: UserDetailInteractorOutput {
     }
     
     func handleGettingRepos(result: Result<[RepoItemDTO]?, Error>) {
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            switch result {
-            case .success(let repoItems):
-                guard let items = repoItems else { return }
-                let itemPresentations = items.map { RepoTableViewCellPresentation(repoItemDTO: $0) }
-                if self.repoCellPresentations == nil {
-                    self.repoCellPresentations = itemPresentations
-                } else {
-                    self.repoCellPresentations?.append(contentsOf: itemPresentations)
-                }
-                self.view?.reloadTableView()
-            case .failure(let error):
-                self.view?.showError()
-                print(error)
+        switch result {
+        case .success(let repoItems):
+            guard let items = repoItems else { return }
+            let itemPresentations = items.map { RepoTableViewCellPresentation(repoItemDTO: $0) }
+            if self.repoCellPresentations == nil {
+                self.repoCellPresentations = itemPresentations
+            } else {
+                self.repoCellPresentations?.append(contentsOf: itemPresentations)
             }
+            self.view?.reloadTableView()
+        case .failure(let error):
+            self.view?.showError()
+            print(error)
         }
     }
     
     func handleGettingUserProfile(result: Result<UserDTO?, Error>) {
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            switch result {
-            case .success(let userDTO):
-                self.userProfileCellPresentation = UserProfileTableViewCellPresentation(userDTO: userDTO)
-                self.interactor?.getRepos(username: self.userName)
-            case .failure(let error):
-                self.view?.showError()
-                print(error)
-            }
+        switch result {
+        case .success(let userDTO):
+            self.userProfileCellPresentation = UserProfileTableViewCellPresentation(userDTO: userDTO)
+            self.interactor?.getRepos(username: self.userName)
+        case .failure(let error):
+            self.view?.showError()
+            print(error)
         }
     }
 }

@@ -80,16 +80,13 @@ extension RepoSearchViewPresenter: RepoSearchViewPresenterInterface {
 extension RepoSearchViewPresenter: RepoSearchViewInteractorOutput {
 
     func handleSearchingRepos(result: Result<SearchReposContainerDTO?, Error>) {
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            switch result {
-            case .success(let searchReposContainerDTO):
-                self.handleCellPresentations(searchReposContainerDTO: searchReposContainerDTO)
-                self.view?.reloadTableView()
-            case .failure(let error):
-                self.view?.showError()
-                print(error)
-            }
+        switch result {
+        case .success(let searchReposContainerDTO):
+            self.handleCellPresentations(searchReposContainerDTO: searchReposContainerDTO)
+            self.view?.reloadTableView()
+        case .failure(let error):
+            self.view?.showError()
+            print(error)
         }
     }
 }
