@@ -18,9 +18,9 @@ final class RepoSearchViewController: UIViewController {
 
     // MARK: IBOutlets
 
-    @IBOutlet private weak var searchBar: UISearchBar!
-    @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet private weak var noDataLabel: UILabel!
+    @IBOutlet private var searchBar: UISearchBar!
+    @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var noDataLabel: UILabel!
     
     private var searchHelper: SearchHelper!
     
