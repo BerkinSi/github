@@ -8,11 +8,17 @@
 import Foundation
 
 public struct SearchReposContainerDTO: Decodable {
+
     public let totalCount: Int?
     public let items: [RepoItemDTO]?
     
     enum CodingKeys: String, CodingKey {
         case totalCount = "total_count"
         case items = "items"
+    }
+
+    public init(totalCount: Int?, items: [RepoItemDTO]? ) {
+        self.totalCount = totalCount
+        self.items = items
     }
 }
