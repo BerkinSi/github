@@ -18,10 +18,10 @@
 		7614CD2625C299AE002B367C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7614CD2525C299AE002B367C /* Kingfisher */; };
 		76196D6425C29B7B0056A8B8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 76196D6625C29B7B0056A8B8 /* Localizable.strings */; };
 		7670554E25C209AE00B2B1E4 /* TablePresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7670554D25C209AE00B2B1E4 /* TablePresenterInterface.swift */; };
-		76B0918D2765CA2200589049 /* RepoSearchPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B0918C2765CA2200589049 /* RepoSearchPresenterTests.swift */; };
-		76B091902765CA6B00589049 /* MockRepoSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B0918F2765CA6B00589049 /* MockRepoSearchView.swift */; };
-		76B091922765CAD600589049 /* MockRepoSearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B091912765CAD600589049 /* MockRepoSearchInteractor.swift */; };
-		76B091942765CB2900589049 /* MockRepoSearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B091932765CB2900589049 /* MockRepoSearchRouter.swift */; };
+		76B0B9A1277A37D600E7C4C4 /* MockRepoSearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B0B99B277A37D100E7C4C4 /* MockRepoSearchInteractor.swift */; };
+		76B0B9A2277A37D600E7C4C4 /* MockRepoSearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B0B999277A37D100E7C4C4 /* MockRepoSearchRouter.swift */; };
+		76B0B9A3277A37D600E7C4C4 /* MockRepoSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B0B99A277A37D100E7C4C4 /* MockRepoSearchView.swift */; };
+		76B0B9A4277A37D600E7C4C4 /* RepoSearchPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B0B99C277A37D100E7C4C4 /* RepoSearchPresenterTests.swift */; };
 		76C3204525BEF5740051C1E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C3204425BEF5740051C1E2 /* AppDelegate.swift */; };
 		76C3204725BEF5740051C1E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C3204625BEF5740051C1E2 /* SceneDelegate.swift */; };
 		76C3204E25BEF5740051C1E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76C3204D25BEF5740051C1E2 /* Assets.xcassets */; };
@@ -79,11 +79,10 @@
 		76196D6825C29B800056A8B8 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7670554D25C209AE00B2B1E4 /* TablePresenterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablePresenterInterface.swift; sourceTree = "<group>"; };
 		76B091812765C9F100589049 /* GithubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		76B091832765C9F100589049 /* GithubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubTests.swift; sourceTree = "<group>"; };
-		76B0918C2765CA2200589049 /* RepoSearchPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RepoSearchPresenterTests.swift; path = ../RepoSearchPresenterTests.swift; sourceTree = "<group>"; };
-		76B0918F2765CA6B00589049 /* MockRepoSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRepoSearchView.swift; sourceTree = "<group>"; };
-		76B091912765CAD600589049 /* MockRepoSearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRepoSearchInteractor.swift; sourceTree = "<group>"; };
-		76B091932765CB2900589049 /* MockRepoSearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRepoSearchRouter.swift; sourceTree = "<group>"; };
+		76B0B999277A37D100E7C4C4 /* MockRepoSearchRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockRepoSearchRouter.swift; sourceTree = "<group>"; };
+		76B0B99A277A37D100E7C4C4 /* MockRepoSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockRepoSearchView.swift; sourceTree = "<group>"; };
+		76B0B99B277A37D100E7C4C4 /* MockRepoSearchInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockRepoSearchInteractor.swift; sourceTree = "<group>"; };
+		76B0B99C277A37D100E7C4C4 /* RepoSearchPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoSearchPresenterTests.swift; sourceTree = "<group>"; };
 		76C3204125BEF5740051C1E2 /* Github.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Github.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76C3204425BEF5740051C1E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76C3204625BEF5740051C1E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -175,44 +174,26 @@
 			path = "Interactor Protocols";
 			sourceTree = "<group>";
 		};
-		76B091822765C9F100589049 /* GithubTests */ = {
+		76B0B998277A37B500E7C4C4 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				76B091832765C9F100589049 /* GithubTests.swift */,
+				76B0B99C277A37D100E7C4C4 /* RepoSearchPresenterTests.swift */,
+				76B0B99B277A37D100E7C4C4 /* MockRepoSearchInteractor.swift */,
+				76B0B999277A37D100E7C4C4 /* MockRepoSearchRouter.swift */,
+				76B0B99A277A37D100E7C4C4 /* MockRepoSearchView.swift */,
 			);
-			name = GithubTests;
-			path = ../GithubTests;
-			sourceTree = "<group>";
-		};
-		76B0918B2765C9FC00589049 /* GithubTests */ = {
-			isa = PBXGroup;
-			children = (
-				76B0918E2765CA3E00589049 /* Repo Search */,
-			);
-			name = GithubTests;
-			path = /Users/emrahakgul/Desktop/Emrah/github/Github/GithubTests;
+			name = Tests;
+			path = /Users/emrahakgul/Desktop/github/Github/Tests;
 			sourceTree = "<absolute>";
-		};
-		76B0918E2765CA3E00589049 /* Repo Search */ = {
-			isa = PBXGroup;
-			children = (
-				76B0918C2765CA2200589049 /* RepoSearchPresenterTests.swift */,
-				76B0918F2765CA6B00589049 /* MockRepoSearchView.swift */,
-				76B091912765CAD600589049 /* MockRepoSearchInteractor.swift */,
-				76B091932765CB2900589049 /* MockRepoSearchRouter.swift */,
-			);
-			path = "Repo Search";
-			sourceTree = "<group>";
 		};
 		76C3203825BEF5740051C1E2 = {
 			isa = PBXGroup;
 			children = (
 				7602851D25C08DD400C26EF8 /* README.md */,
 				76C3204325BEF5740051C1E2 /* Github */,
-				76B091822765C9F100589049 /* GithubTests */,
 				76C3204225BEF5740051C1E2 /* Products */,
 				76C3207225BEFD970051C1E2 /* Frameworks */,
-				76B0918B2765C9FC00589049 /* GithubTests */,
+				76B0B998277A37B500E7C4C4 /* Tests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -534,10 +515,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76B091942765CB2900589049 /* MockRepoSearchRouter.swift in Sources */,
-				76B0918D2765CA2200589049 /* RepoSearchPresenterTests.swift in Sources */,
-				76B091902765CA6B00589049 /* MockRepoSearchView.swift in Sources */,
-				76B091922765CAD600589049 /* MockRepoSearchInteractor.swift in Sources */,
+				76B0B9A4277A37D600E7C4C4 /* RepoSearchPresenterTests.swift in Sources */,
+				76B0B9A2277A37D600E7C4C4 /* MockRepoSearchRouter.swift in Sources */,
+				76B0B9A3277A37D600E7C4C4 /* MockRepoSearchView.swift in Sources */,
+				76B0B9A1277A37D600E7C4C4 /* MockRepoSearchInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
